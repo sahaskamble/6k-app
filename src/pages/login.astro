@@ -1,0 +1,13 @@
+---
+import Layout from "../layout/Layout.astro";
+import Navbar from "../components/Navbar";
+import LoginForm from "../components/LoginForm";
+import "../assets/styles/index.css";
+---
+
+<Layout title="Home">
+	<div>
+		<Navbar />
+		<LoginForm client:load />
+	</div>
+</Layout>

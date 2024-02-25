@@ -1,0 +1,13 @@
+---
+import Layout from "../layout/Layout.astro";
+import Navbar from "../components/Navbar";
+import RegisterForm from "../components/RegisterForm";
+import "../assets/styles/index.css";
+---
+
+<Layout title="Home">
+	<div>
+		<Navbar />
+		<RegisterForm client:load />
+	</div>
+</Layout>
