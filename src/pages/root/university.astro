@@ -1,12 +1,12 @@
 ---
 import Layout from "../../layout/Layout.astro";
 import Navbar from "../../components/Navbar";
-import RootDashboard from "../../components/RootDashboard";
+import University from "../../components/University";
 ---
 
-<Layout title="Dashboard">
+<Layout title="University">
 	<div>
 		<Navbar client:only="react" />
-		<RootDashboard client:only="react" />
+		<University client:only="react" />
 	</div>
 </Layout>
