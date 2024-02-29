@@ -3,10 +3,10 @@
 import { useEffect } from "react";
 import axios from "axios";
 import "../components/LoginForm";
-import img1 from "../assets/img/img1.jpg";
+// import img1 from "../assets/img/img1.jpg";
 
 
-const University = () => {
+const UniversityPage = () => {
 
 	const handelSubmit = (event) => {
 		event.preventDefault();
@@ -97,4 +97,4 @@ const University = () => {
 	);
 }
 
-export default University;
+export default UniversityPage;
