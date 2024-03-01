@@ -4,17 +4,21 @@ import React, { useEffect, useState } from "react";
 const StudentInfo = () =>{
 	
 	const [data, setData] = useState([]);
+	// const [student_id, setId] = useState(0);
 
 	useEffect(() =>{
 	
 		const fetchinfo = async () =>{
 
-			const student_id = sessionStorage.getItem("Id");
+			const student_id = parseInt(sessionStorage.getItem("Id"));
+			// if (!isNaN(stu_id)) {
+			// 	setId(stu_id)
+			// }
 
 			console.log(student_id)
 
 			const res = await axios.post("http://localhost:3000/api/application/fetch",{
-				studend_id: student_id
+				student_id: student_id
 			})
 			setData(res.data.output);
 		}

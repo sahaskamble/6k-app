@@ -18,7 +18,7 @@ const ApplicationFetch = () => {
 		fetchdata();
 	}, [])
 
-	console.log(uni_ID)
+	console.log(data)
 
 	const handleSubmit = (ev) => {
 		ev.preventDefault();
@@ -44,7 +44,7 @@ const ApplicationFetch = () => {
 	return (
 		<div className="mt-[80px] px-[2rem]">
 
-			<div className="w-full mx-auto relative overflow-x-auto">
+			<div className="w-full mx-auto relative overflow-x-auto z-0">
 				<form onSubmit={handleSubmit}>
 					<table className="w-full text-left rtl:text-right text-gray-500 dark:text-gray-400">
 						<thead className="w-full text-xl text-white uppercase bg-red-800 dark:bg-gray-700 dark:text-gray-400">
