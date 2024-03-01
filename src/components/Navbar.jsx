@@ -13,16 +13,16 @@ const Navbar = () => {
     menu.current.classList.toggle("hidden");
   }
 
-  // const clickLogout = () =>{
-  //   
-  // }
+  const clickLogout = () =>{
+    setCode(1)    
+  }
 
   function logIn(){
     return <a className="flex gap-4" href="/login"><i className="bi bi-box-arrow-right block"></i> Sign Up</a>
   } 
 
   function logOut(){
-    return(<a className="flex gap-4" href="/"><i className="bi bi-box-arrow-right block"></i> logout</a>)
+    return(<a onClick={clickLogout} className="flex gap-4" href="/"><i className="bi bi-box-arrow-right block"></i> logout</a>)
   }
 
 
