@@ -19,8 +19,10 @@ const handelSubmit = (event) => {
 		.then((response) => {
 
 			let studentId = response.data.output.Student_Id;
-			// console.log(response.data.output.Student_Id)
+			let logincode = response.data.returncode;
+			console.log(response.data)
 			sessionStorage.setItem("Id", studentId);
+			sessionStorage.setItem("navcode", logincode);
 
 			console.log(sessionStorage.getItem("Id"))
 
@@ -34,7 +36,7 @@ const handelSubmit = (event) => {
 					</div>
 				`
 
-				// window.location = "/";
+				window.location = "/profile";
 			}
 		})
 		.catch((error) => {
