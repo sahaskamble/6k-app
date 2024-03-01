@@ -20,7 +20,7 @@ const handelSubmit = (event) => {
 
 		.then((response) => {
 
-			console.log(response.statusText)
+			console.log(response.data)
 
 			if (response.status === 200) {
 
@@ -31,6 +31,10 @@ const handelSubmit = (event) => {
 						</div>
 					</div>
 				`
+
+				const unid = response.data.output.University_Id;
+
+				sessionStorage.setItem("uni_id", unid);
 
 				// window.location = "/";
 			}

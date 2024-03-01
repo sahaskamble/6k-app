@@ -1,0 +1,12 @@
+---
+import Layout from "../../layout/Layout.astro";
+import Navbar from "../../components/Navbar";
+import UniversityIndex from "../../components/UniversityIndex";
+---
+
+<Layout title="Home">
+	<div>
+		<Navbar client:only="react" />
+		<UniversityIndex client:only="react" />
+	</div>
+</Layout>
