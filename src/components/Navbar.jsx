@@ -25,7 +25,7 @@ const Navbar = () => {
   }
 
   const clickLogout = () => {
-    setCode(1)
+    sessionStorage.setItem("navcode", 1)
   }
 
   function logIn() {
@@ -53,8 +53,8 @@ const Navbar = () => {
       <nav className="flex justify-between items-center">
 
         <div className="navbar_title h-[8dvh] flex justify-between items-center gap-8">
-          <div className="bg-gradient-to-r from-[--primary] to-[--secondary] p-[2.5px] rounded-full">
-            <div className="title text-2xl font-extrabold p-3 bg-[--background] rounded-full">StudyWings</div>
+          <div className="p-[2.5px] rounded-full">
+            <div className="title text-2xl font-extrabold p-3 text-[--primary-200] rounded-full">StudyWings</div>
           </div>
         </div>
 
@@ -75,12 +75,14 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-4">
-          <div onClick={clickMe} id="navbar_menu_button" className="navbar_menu_button text-2xl flex items-center gap-2 bg-[--primary] px-3 py-1 rounded-full cursor-pointer">
-            <i ref={btn} className="bi bi-list text-3xl text-[--background]"></i>
-            <img id="image" className="w-[28px] h-[28px] rounded-full border-[2px] border-[#1d1d1b]" src={img1.src} alt="profile pic" />
+          <div onClick={clickMe} id="navbar_menu_button" className="navbar_menu_button text-2xl flex items-center gap-2 px-3 py-1 cursor-pointer">
+            <i ref={btn} className="bi bi-list text-3xl font-bold text-[--primary-200] border-2 border-[--primary] px-2 rounded-xl"></i>
           </div>
         </div>
+{/* 
+        <img id="image" className="w-[28px] h-[28px] rounded-full border-[2px] border-[#1d1d1b]" src={img1.src} alt="profile pic" />
 
+*/}
 
       </nav>
 
