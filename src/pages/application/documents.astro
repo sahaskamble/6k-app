@@ -1,0 +1,12 @@
+---
+import Layout from "../../layout/Layout.astro";
+import Navbar from "../../components/Navbar";
+import ViewDocuments from "../../components/ViewDocuments";
+---
+
+<Layout title="Documents">
+	<div>
+		<Navbar client:load />
+		<ViewDocuments client:load />
+	</div>
+</Layout>
