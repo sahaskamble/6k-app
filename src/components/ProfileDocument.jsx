@@ -46,11 +46,11 @@ const ProfileDocument = () => {
 	}, []);
 
 	return (
-		<div className="w-full h-[92dvh] flex justify-center items-center bg-[#f6f7f9]">
-			<div className="w-[90%] h-[80dvh] mx-auto bg-white flex justify-center items-center rounded-[20px] shadow-[--bg] shadow-xl" >
+		<div className="w-full h-[92dvh] flex justify-center items-center bg-[--background]">
+			<div className="w-[90%] h-[80dvh] mx-auto flex justify-center items-center rounded-[20px] shadow-[--primary] shadow-md" >
 				<div className="w-[30%] h-full flex justify-center items-center">
 					<div className="w-[300px] h-[300px] flex justify-center items-center ">
-						<img id="img" className="rounded-full w-[200px] h-[200px] border-[5px] border-[#1d1d1b]" src={img1.src} alt="profile pic" />
+						<img id="img" className="rounded-full w-[200px] h-[200px] border-[5px]" src={img1.src} alt="profile pic" />
 					</div>
 				</div>
 
