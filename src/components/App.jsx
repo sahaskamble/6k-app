@@ -25,20 +25,25 @@ const App = () => {
 				</div>
 			</section>
 
-			<section className="info w-full h-dvh">
+			<section className="info w-full h-auto">
 				<div className="py-4">
 					<h1 className="text-6xl font-semibold text-center my-8">Why StudyWings ?</h1>
 					<div className="w-full flex justify-evenly mt-12">
-						<div className="info_block">Save time</div>
-						<div className="info_block">Get free from manual paper work</div>
-						<div className="info_block">it's simple</div>
+						<div className="info_block">Save time Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.</div>
+						<div className="info_block">Get free from manual paper work Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.</div>
+						<div className="info_block">it's simple Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.</div>
 					</div>
 				</div>
 				<div className="more_info">
-					<div className="item-0"></div>
-					<div className="item-1"></div>
-					<div className="item-2"></div>
-					<div className="item-3"></div>
+					<div className="item-0 text-3xl text-black font-semibold flex items-center text-center px-[4rem]">Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.</div>
+					<div className="item-1 text-3xl text-black font-semibold flex items-center text-center px-[4rem]">Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.</div>
+					<div className="item-2 flex justify-center items-center">
+						<div className="text-5xl text-black font-bold">100K + Users</div>
+					</div>
+					<div className="item-3 flex flex-col justify-center items-center gap-8">
+						<div className="text-5xl text-black font-bold">100% Satisfaction</div>
+						<div className="text-black text-xl text-center">Forever</div>
+					</div>
 				</div>
 			</section>
 		</>
