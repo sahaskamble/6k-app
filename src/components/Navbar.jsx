@@ -58,7 +58,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div ref={menu} id="navbar_float_menu" className="absolute transition transition-all top-[9dvh] right-[-100%] z-10 w-[300px] h-[280px] p-1 rounded-lg">
+        <div ref={menu} id="navbar_float_menu" className="fixed transition-all ease-in-out duration-700 top-[9dvh] right-[-50%] z-10 w-[300px] h-[280px] p-1 rounded-lg">
           <div className="flex h-full flex-col justify-evenly items-center p-3 text-xl bg-[--primary] rounded-lg text-[--background]" >
             <div className="container flex justify-between items-center gap-8 rounded-md h-[80px] bg-[--primary-400]">
               <div className="w-[40%] flex justify-center items-center">

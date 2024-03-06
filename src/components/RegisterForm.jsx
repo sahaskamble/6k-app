@@ -75,10 +75,10 @@ const RegisterForm = () => {
 						<input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="phone" type="tel" placeholder="phone no" />
 					</div>
 					<div className="flex items-center justify-between">
-						<button className="bg-[--primary] hover:bg-[--primary-500] hover:text-[--text] text-[--background] font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+						<button className="bg-[--primary] hover:bg-[--primary-400] text-[--background] font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
 							Sign In
 						</button>
-						<a className="inline-block align-baseline font-bold text-sm text-[--primary] hover:text-[--primary-500]" href="#">
+						<a className="inline-block align-baseline font-bold text-sm text-[--primary] hover:text-[--primary-400]" href="#">
 							Forgot Password?
 						</a>
 					</div>

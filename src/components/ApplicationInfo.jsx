@@ -1,42 +1,91 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-const StudentInfo = () =>{
-	
+const StudentInfo = () => {
+
 	const [data, setData] = useState([]);
-	// const [student_id, setId] = useState(0);
 
-	useEffect(() =>{
-	
-		const fetchinfo = async () =>{
+	const fetchinfo = async () => {
 
-			const student_id = parseInt(sessionStorage.getItem("Id"));
-			// if (!isNaN(stu_id)) {
-			// 	setId(stu_id)
-			// }
+		const student_id = parseInt(sessionStorage.getItem("Id"));
 
-			console.log(student_id)
+		const res = await axios.post("http://localhost:3000/api/application/fetch", {
+			student_id: student_id
+		})
+		setData(res.data.output);
+	}
 
-			const res = await axios.post("http://localhost:3000/api/application/fetch",{
-				student_id: student_id
-			})
-			setData(res.data.output);
-		}
-
+	useEffect(() => {
 		fetchinfo();
-
 	}, []);
 
 
-	return(
-		<div className="w-[60%]">
+	return (
+		<div className="w-full">
 			<div className="flex flex-col gap-4 justify-center items-center text-xl">
-				<div className="bg-sky-500  text-white">{data.Student_Name}</div>
-				<div>{data.Course_Name}</div>
-				<div>{data.Description}</div>
-				<div>{data.Start_date}</div>
-				<div>{data.End_date}</div>
-				<div>{data.Status}</div>
+				<table className="w-full text-sm text-left rtl:text-right bg-[--background] shadow-[--primary] shadow-md">
+					<thead className="text-l text-white uppercase bg-[--primary]">
+						<tr>
+							<th scope="col" className="px-6 py-3">
+								University Name
+							</th>
+							<th scope="col" className="px-6 py-3">
+								Location
+							</th>
+							<th scope="col" className="px-6 py-3">
+								Course Name
+							</th>
+							<th scope="col" className="px-6 py-3">
+								Duration
+							</th>
+							<th scope="col" className="px-6 py-3">
+								Admission Process
+							</th>
+							<th scope="col" className="px-6 py-3">
+								Status
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						{
+
+							data.map((item) =>
+							(
+
+								<tr class="bg-[--background] border-b text-white border-gray-700">
+									<th scope="row" class="px-6 py-4">
+										{item.University_Name}
+									</th>
+									<td class="px-6 py-4">
+										{item.University_Location}
+									</td>
+									<td class="px-6 py-4">
+										{item.Course_Name}
+									</td>
+									<td class="px-6 py-4">
+										{item.Course_Duration} Years
+									</td>
+									<td class="px-6 py-4">
+										{item.University_AdmissionProcess}
+									</td>
+									<td class="px-6 py-4 text-right">
+										{item.Application_Status === "Accepted" ?
+											(
+												<span class="font-medium text-green-600 dark:text-green-500 hover:underline">{item.Application_Status}</span>
+											)
+											:
+											(
+												<span class="font-medium text-red-600 dark:text-red-500 hover:underline">{item.Application_Status}</span>
+											)}
+									</td>
+
+								</tr>
+							))
+						}
+					</tbody>
+
+				</table>
+
 			</div>
 		</div>
 	);

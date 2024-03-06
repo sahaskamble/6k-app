@@ -18,14 +18,14 @@ const ApplicationFetch = () => {
 		fetchdata();
 	}, [])
 
-	console.log(data)
 
 	const handleSubmit = (ev) => {
 		ev.preventDefault();
 
-		const course_id = ev.target.madar.value;
-		const student_id = uni_ID;
-		const app_status = "huluhulhu";
+		const course_id = parseInt(ev.target.madar.value);
+		const student_id = parseInt(sessionStorage.getItem("Id"));
+		const app_status = "Pending";
+		const alert_msg = document.getElementById('notification');
 
 		axios.post("http://localhost:3000/api/application/add", {
 
@@ -35,7 +35,28 @@ const ApplicationFetch = () => {
 
 		})
 			.then((response) => {
-				console.log(response.data)
+				if (response.status === 200) 
+				{
+
+					alert_msg.innerHTML = `
+						<div class="fixed top-16 bg-green-100 w-full border border-green-400 text-green-700 px-4 py-3 rounded">
+							<div class="flex justify-center items-center">
+								<span class="text-3xl">Your Counselling Session Link will be provided shortly on your Email.</span>
+							</div>
+						</div>
+					`
+				}
+				else
+				{
+
+					alert_msg.innerHTML = `
+						<div class="fixed top-16 bg-green-100 w-full border border-green-400 text-green-700 px-4 py-3 rounded">
+							<div class="flex justify-center items-center">
+								<span class="text-3xl">${response.data.message}</span>
+							</div>
+						</div>
+					`
+				}	
 			})
 	}
 
@@ -43,6 +64,7 @@ const ApplicationFetch = () => {
 
 	return (
 		<div className="mt-[80px] px-[2rem]">
+			<div id="notification" className="relative z-10 flex justify-center items-center"></div>
 
 			<div className="w-full mx-auto relative overflow-x-auto z-0">
 				<form onSubmit={handleSubmit}>
@@ -52,7 +74,7 @@ const ApplicationFetch = () => {
 								<th scope="col" className="w-[8%] px-6 py-3">
 									No.
 								</th>
-								<th scope="col" className="w-[44%] px-6 py-3">
+								<th scope="col" className="w-[40%] px-6 py-3">
 									Universities
 								</th>
 								<th scope="col" className="w-[20%] px-6 py-3">
@@ -60,6 +82,9 @@ const ApplicationFetch = () => {
 								</th>
 								<th scope="col" className="w-[20%] px-6 py-3">
 									Admission Process
+								</th>
+								<th scope="col" className="w-[20%] px-6 py-3">
+									Ranking
 								</th>
 								<th scope="col" className="w-[8%] px-6 py-3">
 								</th>
@@ -75,22 +100,33 @@ const ApplicationFetch = () => {
 											</div>
 										</td>
 										<th className="px-6 py-4">
-											<div className="">
-												{items.University_Name}
+											<div className="font-large text-gray-900 whitespace-nowrap dark:text-white">
+												<div className="text-2xl">
+													{items.University_Name}
+												</div>
 												<div className="flex flex-col">
-													<div>Description : {items.Description}</div>
-													<div className="text-md inline-flex items-center text-yellow-300"><i className="bi bi-arrow-right"></i> Apply now</div>
+													<div className="font-medium text-xl text-gray-700">{items.University_Location}</div>
+													<div className="font-medium text-gray-700">Description : {items.Description}</div>
 												</div>
 											</div>
 										</th>
 										<td className="px-6 py-4">
-											<div>
-												{items.Course_Name}
+											<div className="font-large text-gray-900 whitespace-nowrap dark:text-white">
+												<div className="flex flex-col">
+													<div className="font-medium text-2xl text-gray-700">{items.Course_Fees}</div>
+													<div className="font-medium text-xl text-gray-700">{items.Course_Name}</div>
+													<div className="font-medium text-gray-700">Description : {items.Course_Description}</div>
+												</div>
 											</div>
 										</td>
 										<td className="px-6 py-4">
-											<div>
+											<div className="font-large text-2xl text-gray-900 whitespace-nowrap dark:text-white">
 												{items.University_AdmissionProcess}
+											</div>
+										</td>
+										<td className="px-6 py-4">
+											<div className="font-large text-2xl text-gray-900 whitespace-nowrap dark:text-white">
+												{items.University_Ranking}
 											</div>
 										</td>
 										<td className="px-6 py-4">
@@ -105,7 +141,7 @@ const ApplicationFetch = () => {
 
 						</tbody>
 					</table>
-					<div className="fixed top-[90px] right-[80px]">
+					<div className="fixed top-[100px] right-[6.5%]">
 						<button className="px-4 py-2 bg-red-800 text-white rounded-md" type="submit">Next</button>
 					</div>
 				</form>

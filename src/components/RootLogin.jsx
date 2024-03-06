@@ -25,25 +25,43 @@ const handelSubmit = (event) => {
 			if (response.status === 200) {
 
 				alert_msg.innerHTML = `
-					<div class="fixed top-16 bg-green-100 w-full border border-green-400 text-green-700 px-4 py-3 rounded">
+					<div class="fixed top-16 bg-green-100 w-full border border-red-400 text-green-700 px-4 py-3 rounded">
 						<div class="flex justify-center items-center">
 							<span class="text-3xl">Verification Successfull</span>
 						</div>
 					</div>
 				`
 
-				// window.location = "/";
+				window.location = "/root/dashboard";
+			}
+			else
+			{
+				alert_msg.innerHTML = `
+					<div class="fixed top-16 left-0 bg-red-100 w-dvw border border-red-400 text-red-700 px-4 py-3 rounded">
+						<div class="flex justify-center items-center">
+							<span class="text-3xl">Wrong Credentials</span>
+						</div>
+					</div>
+				`
 			}
 		})
 		.catch((error) => {
-			console.error(error);
+			alert_msg.innerHTML = `
+					<div class="fixed top-20 left-0 bg-red-100 w-dvw border border-red-400 text-red-700 px-4 py-3 rounded">
+						<div class="flex justify-center items-center">
+							<span class="text-3xl">Wrong Credentials</span>
+						</div>
+					</div>
+				`
 		});
 }
 
 
 const LoginForm = () => {
 	return (
-		<div className="h-screen flex justify-center items-center">
+		<div className="h-screen flex flex-col justify-center items-center">
+			<div id="notification" className=""></div>
+
 			<div className="w-full max-w-sm max-h-full">
 				<form className="bg-white shadow-lg border border-gray-500 rounded-xl px-8 pt-6 pb-8 mb-4" onSubmit={handelSubmit}>
 					<div className="w-full text-gray-700 mb-3 flex justify-between items-center">
@@ -67,15 +85,14 @@ const LoginForm = () => {
 						<input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="Password" />
 					</div>
 					<div className="flex items-center justify-between">
-						<button className="bg-gradient-to-r from-[--bg] to-[--ui] hover:bg-gradient-to-r hover:from-[--ui] hover:to-[--bg] font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+						<button className="bg-[--primary] hover:bg-[--primary-400] text-white rounded-lg font-bold py-2 px-4" type="submit">
 							Sign In
 						</button>
-						<a className="inline-block align-baseline font-bold text-sm text-[--primary-color] hover:text-[--primary-color]" href="#">
+						<a className="inline-block align-baseline font-bold text-sm text-[--primary] hover:text-[--primary-400]" href="#">
 							Forgot Password?
 						</a>
 					</div>
 				</form>
-				<div id="notification" className="relative z-10 flex justify-center items-center"></div>
 			</div>
 		</div>
 	)

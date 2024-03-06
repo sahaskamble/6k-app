@@ -80,10 +80,10 @@ const LoginForm = () => {
 						<input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="Password" />
 					</div>
 					<div className="flex items-center justify-between">
-						<button className="bg-gradient-to-r from-[--ui] to-[--bg] text-black hover:bg-gradient-to-r hover:from-[--bg] hover:to-[--ui] transition-colors font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+						<button className="bg-[--primary] hover:bg-[--primary-400] text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
 							Sign In
 						</button>
-						<a className="inline-block align-baseline font-bold text-sm text-[--fg] hover:text-[--primary-color]" href="#">
+						<a className="inline-block align-baseline font-bold text-sm text-[--primary] hover:text-[--primary-400]" href="#">
 							Forgot Password?
 						</a>
 					</div>

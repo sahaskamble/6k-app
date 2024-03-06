@@ -4,26 +4,24 @@ import { useEffect, useState, useRef } from "react";
 const UniversityIndex = () => {
 
 	const [data, setData] = useState([]);
-	let id ;
-
 	const fetchdata = async () => {
-		// const university_id = parseInt(sessionStorage.getItem("uni_id"))
-		const university_id = 1
+		const university_id = parseInt(sessionStorage.getItem("uni_id"));
+		// const university_id = 1
 		const res = await axios.post("http://localhost:3000/api/application/fetch/admin", {
 			university_id: university_id
 		})
 		setData(res.data.output)
 	}
 
-	function handleDoc(){
-		window.location("/application")
+	function handleDoc(id, app_id){
+		sessionStorage.setItem("Student_id", id);
+		sessionStorage.setItem("Application_id", app_id);
+		window.location.href = "/application/user_docs";
 	}
 
 	useEffect(() => {
 
 		fetchdata();
-		sessionStorage.setItem("Sid", id);
-
 		console.log(data)
 	}, [])
 
@@ -45,10 +43,10 @@ const UniversityIndex = () => {
 									Phone
 								</th>
 								<th scope="col" className="px-6 text-center py-3">
-									Documents
+									Status
 								</th>
 								<th scope="col" className="px-6 text-center py-3">
-									Actions
+									Documents
 								</th>
 							</tr>
 						</thead>
@@ -64,16 +62,13 @@ const UniversityIndex = () => {
 										</td>
 										<td className="px-6 text-center py-4">
 											{items.Student_Phone}
-											{ 
-												id = items.Student_Id
-											}
 										</td>
 										<td className="px-6 text-center py-4">
-											<button onClick={} className="px-3 py-1 mx-2 bg-blue-500 text-white rounded-lg">View</button>
+											{items.Application_Status}
 										</td>
 										<td className="px-6 text-center py-4">
-											<button className="px-3 py-1 mx-2 bg-green-500 text-white rounded-lg">Accept</button>
-											<button className="px-3 py-1 mx-2 bg-red-500 text-white rounded-lg">Reject</button>
+										 
+											<button onClick={() => handleDoc(items.Student_Id, items.Application_Id)} className="px-3 py-1 mx-2 bg-blue-500 text-white rounded-lg">View</button>
 										</td>
 									</tr>
 								))

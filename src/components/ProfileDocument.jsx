@@ -27,21 +27,6 @@ const ProfileDocument = () => {
 	}
 
 	useEffect(() => {
-		//
-		// axios.post("http://localhost:3000/api/student/account/details/fetch",{
-		// 	user: sessionStorage.getItem("Id")
-		// })
-		//
-		// .then((response) => {
-		// 	const data = response.data.output.Student_ProfilePic;
-		//
-		// 	console.log(data)
-		//
-		// 	const test = document.getElementById("Test");
-		//
-		// 	test.innerHTML = `<img src=${data} alt="profile"/>`;
-		// 	// console.log(response)
-		// })
 
 	}, []);
 
