@@ -1,0 +1,6 @@
+li{
+	padding: 5px;	
+}
+li.active{
+	border-bottom: solid 2px #60a5fa;
+}
